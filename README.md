@@ -109,7 +109,7 @@ minikube dashboard
 ## Check The Connectivity
 - Firstly execute the MySQL container using:
 ```shell
-kubectl exec -it django-app-deploy-d5cbb4d8-tk9tk -n development -- /bin/bash
+kubectl exec -it <full POD name> -n database -- /bin/bash
 ```
 - Secondery check the MySQL data base info:
 ```shell
@@ -122,13 +122,11 @@ $ mysql -p
  
 - In a new tab execute the Django container same as what we did with the MySQL container, then:
  ```shell
- cd mysite/
- python manage.py migrate
- ```
-- Finally, Go back to the MySQL tab and rerun the ``` show tables; ``` command to figoure out that the Django container and MySQL container are linked correctly.
-
-kubectl exec -it django-app-deploy-d5cbb4d8-tk9tk -n development -- /bin/bash
-
+kubectl exec -it <full POD name> -n development -- /bin/bash
+cd mysite/
+python manage.py migrate
+```
+- Finally, Go back to the MySQL tab and rerun the ` show tables; ` command to figoure out that the Django spp and MySQL database are linked correctly.
 
 ## Detailed information
 
