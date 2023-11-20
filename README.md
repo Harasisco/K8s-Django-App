@@ -1,6 +1,6 @@
 # K8s-Django-App
 
-In this project, we will create a Django web application and deploy it on Kubernetes using Minikube. This process involves the creation of deployment files and services. To handle environment variables, we'll employ Kubernetes secrets. Additionally, for load balancing and port forwarding, we will utilize ingress-nginx.
+In this project, we will create a Django web application connected to a MuSQL database and deploy them on Kubernetes using Minikube. This process involves the creation of deployment files and services. To handle environment variables, we'll employ Kubernetes secrets. Additionally, for port forwarding, we will utilize ingress-nginx.
 
 ## Table of Contents
 
