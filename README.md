@@ -116,7 +116,7 @@ kubectl exec -it <full POD name> -n database -- /bin/bash
 $ mysql -p
 > show databases;
 > use my_database;
-> show tables
+> show tables;
 ```
 - You will see that No tables shown.
  
