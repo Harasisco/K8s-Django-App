@@ -1,6 +1,7 @@
 # K8s-Django-App
 
-In this project, we will create a Django web application connected to a MySQL database and deploy them on Kubernetes using Minikube. This process involves the creation of deployment files and services. To handle environment variables, we'll employ Kubernetes secrets. Additionally, for port forwarding, we will utilize ingress-nginx.
+In this project, we will create a Django web application connected to a MySQL database and deploy them on Kubernetes using Minikube. This process involves the creation of deployment files and services. To handle environment variables, we'll employ Kubernetes secrets. Additionally, We will expose the Django application using nginx ingress
+.
 
 ## Table of Contents
 
@@ -74,7 +75,7 @@ kubectl create namespace database
      
    ```shell
    kubectl get pods,svc -n database
-   kubectl logs pod/<your mysql pod> -n database
+   kubectl logs pod/mysql-deploy-79c5dd7699-b52h6 -n database
    ```
 
 6. Deploy the Django app:
@@ -121,7 +122,7 @@ minikube dashboard
 ## Check The Connectivity
 - Firstly execute the MySQL pod using:
 ```shell
-kubectl exec -it <full POD name> -n database -- /bin/bash
+kubectl exec -it mysql-deploy-79c5dd7699-b52h6 -n database -- /bin/bash
 ```
 - Secondery check the MySQL data base info:
 ```shell
@@ -134,7 +135,7 @@ $ mysql -p
  
 - In a new tab execute the Django pod same as what we did with the MySQL pod, then:
  ```shell
-kubectl exec -it <full POD name> -n development -- /bin/bash
+kubectl exec -it django-app-deploy-7df69494dd-tn72r -n development -- /bin/bash
 cd mysite/
 python manage.py migrate
 ```
