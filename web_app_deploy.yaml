@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app-deploy
+  labels:
+    name: django-app-deploy
+    app: demo-web-app
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: django-app-pod
+      app: demo-web-app
+
+  template:
+    metadata:
+      name: django-app-pod
+      labels:
+        name: django-app-pod
+        app: demo-web-app
+    spec:
+      containers:
+        - name: django-app
+          image: test934/django-app:v1.0.1
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: django-app-secrets
