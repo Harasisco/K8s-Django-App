@@ -42,7 +42,13 @@ minikube addons enable ingress
 ```shell
 kubectl get pods -n ingress-nginx
 ```
-
+**You will see something like thie:**
+```shell
+NAME                                        READY   STATUS      RESTARTS   AGE
+ingress-nginx-admission-create-dm92w        0/1     Completed   0          66s
+ingress-nginx-admission-patch-zmqwz         0/1     Completed   1          66s
+ingress-nginx-controller-7c6974c4d8-z9xfj   1/1     Running     0          66s
+```
 4. Create our custom namespaces:
 
 ```shell
@@ -97,6 +103,12 @@ kubectl create namespace database
 
 ```shell
 curl --resolve "hello-world.info:80:$( minikube ip )" -i http://hello-world.info
+```
+
+**You will get something like this:**
+
+```html
+<h1>Hello, World!</h1>
 ```
 
 <p>For additional insight into your cluster state, minikube bundles the Kubernetes Dashboard, allowing you to get easily acclimated to your new environment: </p>
