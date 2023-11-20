@@ -96,7 +96,7 @@ kubectl create namespace database
 7. Verify that the Ingress controller is directing traffic:
 
 ```shell
-curl --resolve "hello-world.info:80:$( minikube ip )" -i http://hello-world.info\n
+curl --resolve "hello-world.info:80:$( minikube ip )" -i http://hello-world.info
 ```
 
 <p>For additional insight into your cluster state, minikube bundles the Kubernetes Dashboard, allowing you to get easily acclimated to your new environment: </p>
@@ -107,7 +107,7 @@ curl --resolve "hello-world.info:80:$( minikube ip )" -i http://hello-world.info
 minikube dashboard
 ```
 ## Check The Connectivity
-- Firstly execute the MySQL container using:
+- Firstly execute the MySQL pod using:
 ```shell
 kubectl exec -it <full POD name> -n database -- /bin/bash
 ```
@@ -120,7 +120,7 @@ $ mysql -p
 ```
 - You will see that No tables shown.
  
-- In a new tab execute the Django container same as what we did with the MySQL container, then:
+- In a new tab execute the Django pod same as what we did with the MySQL pod, then:
  ```shell
 kubectl exec -it <full POD name> -n development -- /bin/bash
 cd mysite/
